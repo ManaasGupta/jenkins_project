@@ -25,12 +25,5 @@ pipeline {
                 junit testResults: '**/target/surefire-reports/TEST*.xml'
             }
         }
-        stage("Jacoco_Results") {
-            steps {
-                // Generate Jacoco code coverage report
-                jacoco(execPattern: '**/target/**.exec')
-                // Replace '**/target/**.exec' with the correct location of Jacoco execution files if needed
-            }
-        }
     }
 }
