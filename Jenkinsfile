@@ -19,10 +19,11 @@ pipeline {
                 archiveArtifacts '**/target/*.jar'
             }
         }
-        stage("JUnit_Results") {
+        stage("Jacoco_Results") {
             steps {
-                // Publish JUnit test results
-                junit testResults: '**/target/surefire-reports/TEST*.xml'
+                // Generate Jacoco code coverage report
+                jacoco(execPattern: '**/target/**.exec')
+                // Replace '**/target/**.exec' with the correct location of Jacoco execution files if needed
             }
         }
     }
